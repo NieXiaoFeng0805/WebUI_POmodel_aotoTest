@@ -1,4 +1,5 @@
 # WeibUI PO设计模式 自动化测试
+## Pycharm+selenium+Unittest+DDT
 
 #目录结构
 ![img.png](asserts/img.png)

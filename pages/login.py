@@ -13,13 +13,14 @@ from selenium.webdriver.common.by import By
 
 class Login(Base):
     def login(self, phone, pwd, ver):
-        self.send_keys(By.XPATH, '//*[@id="username"]', phone)
-        self.send_keys(By.XPATH, '//*[@id="password"]', pwd)
-        self.send_keys(By.XPATH, '//*[@id="verify_code"]', ver)
-        self.click(By.XPATH, '//*[@id="loginform"]/div/div[6]/a')
+        self.click(By.LINK_TEXT, '登录')
+        self.send_keys(By.ID, 'username', phone)
+        self.send_keys(By.ID, 'password', pwd)
+        self.send_keys(By.ID, 'verify_code', ver)
+        self.click(By.NAME, 'sbtbutton')
 
     def if_login_success(self):
-        return self.base_ele_isexit(By.LINK_TEXT, "安全退出")
+        return self.base_ele_isexit(self.find(By.LINK_TEXT, "安全退出"))
 
-    def safe_exit(self):
-        return self.click(By.LINK_TEXT, "安全退出")
+    def safe_quit(self):
+        self.click(By.LINK_TEXT,"安全退出")

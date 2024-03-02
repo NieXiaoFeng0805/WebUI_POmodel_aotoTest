@@ -1,0 +1,5 @@
+test_add_cart:
+  data_001:
+    name: "小米"
+  data_002:
+    name: "小米"

@@ -14,6 +14,7 @@ from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.select import Select
 
 '''Base是所有pageobject的父类，  为子类提供公共方法， 比如初始化 driver 和退出driver
 代码在base_page模块的basepage类使用——init——初始方法进行初始化操作，包括driver的复用
@@ -36,7 +37,7 @@ class Base:
             self.driver = driver
 
     def close(self):
-        time.sleep(5)
+        time.sleep(3)
         self.driver.quit()
 
     # 提取find方法
@@ -72,9 +73,12 @@ class Base:
         self.driver.get_screenshot_as_file('../images/{}.png'.format(time.strftime("%Y_%m_%d_%H_%M_%S")))
 
     # 判断元素是否存在
-    def base_ele_isexit(self, by, loc):
+    def base_ele_isexit(self,loc):
         try:
-            self.find(by, loc)
+            self.find(loc)
             return True
         except:
             return False
+    # 选择下拉框
+    def select_down(self,by,loc):
+        pass

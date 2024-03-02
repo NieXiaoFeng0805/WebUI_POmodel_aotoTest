@@ -1,0 +1,31 @@
+#- phone: 13800138006
+#  pwd: 123456
+#  ver: 8888
+#  status: True
+#- phone: 13800138126
+#  pwd: 123er6
+#  ver: 8888
+#  status: False
+#- phone: 13800138006
+#  pwd: 1236
+#  ver: 8888
+#  status: False
+
+test_login_data:
+  login_data_001:
+    phone: 13800138006
+    pwd: 123456
+    ver: 8888
+    status: True
+# 账号不存在
+  login_data_002:
+    phone: 13800138126
+    pwd: 123456
+    ver: 8888
+    status: False
+# 密码错误
+  login_data_003:
+    phone: 13800138006
+    pwd: 12err36
+    ver: 8888
+    status: False

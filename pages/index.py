@@ -7,16 +7,15 @@
 
 """
 from pages.Base import Base
-# from pages.search_page import Search
 from selenium.webdriver.common.by import By
 
+# from pages.search_page import Search
 from pages.login import Login
 # from pages.add_cart import Add_Cart
 
 
 class Index(Base):
     def to_login(self):
-        self.click(By.LINK_TEXT, '登录')
         return Login(self.driver)
 
     def to_regist(self):
@@ -30,5 +29,4 @@ class Index(Base):
         return Search(self.driver)
 
     def to_addCart(self):
-        self.click(By.XPATH, '/html/body/div[6]/div[2]/div[2]/a[4]/div[3]/img')
         return Add_Cart(self.driver)

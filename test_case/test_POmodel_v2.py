@@ -12,7 +12,6 @@ import pytest
 from utils.read_data import get_yaml_data
 
 from pages.index import Index
-from pages.User import User
 
 
 class Test_index:
@@ -46,21 +45,24 @@ class Test_index:
         else:
             print("登录失败")
             self.index.base_get_img()
+
+    @allure.title("注册功能测试")
+    @pytest.mark.parametrize('args', get_yaml_data("register_data.yml", "test_register_data"))
+    def test_register(self, args):
+        phone, ver, phone_ver, pwd, ver_pwd = args['username'], args['verify_code'], args['phone_code'], args['pwd'], \
+                                              args['ver_pwd']
+        self.index.to_regist().register_byPhone(phone, ver, phone_ver, pwd, ver_pwd)
+
     @allure.title("添加商品到购物车")
-    @pytest.mark.parametrize('args',get_yaml_data("search_data","name"))
-    def test_add_cart(self,args):
+    @pytest.mark.parametrize('args', get_yaml_data("search_data.yml", "test_add_cart"))
+    def test_add_cart(self, args):
         # 判断登录状态
         try:
-            assert True,self.index.base_ele_isexit(self.find(By.LINK_TEXT, "安全退出"))
+            assert True, self.index.base_ele_isexit(self.find(By.LINK_TEXT, "安全退出"))
             print("已登录，可以进行商品添加")
         except:
             print("未进行登录，只能使用搜索功能以及查看商品")
         else:
-            shop_name= args['name']
-
-
-
-
-
-
-
+            shop_name = args['name']
+            self.index.to_addCart().to_search_and_add(shop_name)
+            self.index.to_addCart().continue_buy()

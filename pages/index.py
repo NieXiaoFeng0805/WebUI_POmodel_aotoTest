@@ -11,7 +11,8 @@ from selenium.webdriver.common.by import By
 
 # from pages.search_page import Search
 from pages.login import Login
-# from pages.add_cart import Add_Cart
+from pages.add_cart import AddCart
+from pages.register import Register
 
 
 class Index(Base):
@@ -19,14 +20,10 @@ class Index(Base):
         return Login(self.driver)
 
     def to_regist(self):
-        self.click(By.LINK_TEXT, '注册')
-        return
+        return Register(self.driver)
 
     def to_search(self):
-        self.send_keys(By.XPATH, '//*[@id="q"]', '手机')
-        self.click(By.XPATH, '//*[@id="searchForm"]/button')
-        # self.window(self.driver.window_handles[-1])
         return Search(self.driver)
 
     def to_addCart(self):
-        return Add_Cart(self.driver)
+        return AddCart(self.driver)

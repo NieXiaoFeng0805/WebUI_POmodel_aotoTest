@@ -1,0 +1,7 @@
+test_register_data:
+  data_001:
+    username: 13888888888
+    verify_code: 8888
+    phone_code:  8888
+    pwd: 123456789
+    ver_pwd: 123456789

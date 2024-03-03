@@ -42,11 +42,11 @@ class Base:
 
     # 提取find方法
     def find(self, by, loc):
-        return WebDriverWait(self.driver, timeout=30).until(lambda x: self.driver.find_element(by, loc))
+        return WebDriverWait(self.driver, timeout=15).until(lambda x: self.driver.find_element(by, loc))
 
     # 提取finds方法
     def finds(self, by, loc):
-        return WebDriverWait(self.driver, timeout=30).until(lambda x: self.driver.find_elements(by, loc))
+        return WebDriverWait(self.driver, timeout=15).until(lambda x: self.driver.find_elements(by, loc))
 
     # 提取click方法
     def click(self, by, loc):

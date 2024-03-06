@@ -13,6 +13,7 @@ import yaml
 from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
@@ -73,12 +74,17 @@ class Base:
         self.driver.get_screenshot_as_file('../images/{}.png'.format(time.strftime("%Y_%m_%d_%H_%M_%S")))
 
     # 判断元素是否存在
-    def base_ele_isexit(self,loc):
+    def base_ele_isexit(self, loc):
         try:
             self.find(loc)
             return True
         except:
             return False
+
     # 选择下拉框
-    def select_down(self,by,loc):
+    def select_down(self, by, loc):
         pass
+
+    # 定位鼠标悬停
+    def mouseover(self, by, loc):
+        ActionChains(self.driver).move_to_element(self.find(by, loc).perform())

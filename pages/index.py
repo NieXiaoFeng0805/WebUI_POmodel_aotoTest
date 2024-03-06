@@ -13,17 +13,21 @@ from selenium.webdriver.common.by import By
 from pages.login import Login
 from pages.add_cart import AddCart
 from pages.register import Register
+from pages.check_cart import CheckCart
 
 
 class Index(Base):
-    def to_login(self):
+    def to_login(self):  # 跳转登录
         return Login(self.driver)
 
-    def to_regist(self):
+    def to_regist(self):  # 跳转注册
         return Register(self.driver)
 
-    def to_search(self):
+    def to_search(self):  # 搜索商品
         return Search(self.driver)
 
-    def to_addCart(self):
+    def to_addCart(self):  # 加入购物车
         return AddCart(self.driver)
+
+    def to_check_cart(self):  # 查看购物车
+        return CheckCart(self.driver)

@@ -19,7 +19,7 @@ class AddCart(Base):
         self.click(By.LINK_TEXT, '加入购物车')
         time.sleep(3)
         try:
-            assert True, self.base_ele_isexit(self.find(By.XPATH, '//*[@id="layui-layer-iframe1"]'))
+            assert True, self.isElementExist(self.find(By.XPATH, '//*[@id="layui-layer-iframe1"]'))
         except:
             print("添加失败")
         else:

@@ -66,3 +66,9 @@ class Test_index:
             shop_name = args['name']
             self.index.to_addCart().to_search_and_add(shop_name)
             self.index.to_addCart().continue_buy()
+
+    def test_check_cart(self):
+        self.index.to_check_cart().check_cart()
+
+
+

@@ -56,19 +56,17 @@ class Test_index:
     @allure.title("添加商品到购物车")
     @pytest.mark.parametrize('args', get_yaml_data("search_data.yml", "test_add_cart"))
     def test_add_cart(self, args):
-        # 判断登录状态
-        try:
-            assert True, self.index.base_ele_isexit(self.find(By.LINK_TEXT, "安全退出"))
-            print("已登录，可以进行商品添加")
-        except:
-            print("未进行登录，只能使用搜索功能以及查看商品")
-        else:
-            shop_name = args['name']
-            self.index.to_addCart().to_search_and_add(shop_name)
-            self.index.to_addCart().continue_buy()
+        shop_name = args['name']
+        self.index.to_addCart().to_search_and_add(shop_name)
+        self.index.to_addCart().continue_buy()
 
-    def test_check_cart(self):
+    @allure.title("查看无商品的购物车")
+    def test_check_cart_ByNoThings(self):
         self.index.to_check_cart().check_cart()
 
-
-
+    @allure.title("查看有商品的购物车")
+    @pytest.mark.parametrize('args', get_yaml_data("search_data.yml", "test_add_cart"))
+    def test_check_cart_ByHasThings(self, args):
+        shop_name = args['name']
+        self.index.to_check_cart().to_addThingsAndBackIndex(shop_name)
+        self.index.to_check_cart().check_cart()

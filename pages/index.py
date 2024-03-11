@@ -14,6 +14,7 @@ from pages.login import Login
 from pages.add_cart import AddCart
 from pages.register import Register
 from pages.check_cart import CheckCart
+from pages.my_cart import MyCart
 
 
 class Index(Base):
@@ -31,3 +32,6 @@ class Index(Base):
 
     def to_check_cart(self):  # 查看购物车
         return CheckCart(self.driver)
+
+    def to_check_MyCart(self):  # 查看我的订单
+        return MyCart(self.driver)

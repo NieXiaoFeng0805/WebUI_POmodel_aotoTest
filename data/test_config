@@ -1,0 +1,7 @@
+to_get_cookies:
+  login_cookies:
+    page_url: http://localhost/index.php
+    cookies_save_path: ../login_cookies.json
+
+cookies_path:
+  login: 'E://Pycharm//LearnSelenium//WebUI_POmodel_aotoTest//utils//login_cookies.json'

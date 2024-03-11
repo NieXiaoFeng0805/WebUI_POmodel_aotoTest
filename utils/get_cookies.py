@@ -12,10 +12,10 @@ import json
 import os
 
 page_url = 'http://localhost/index.php'
-save_cookies_path = '../cookies.json'
+save_cookies_path = './login_cookies.json'
 
 
-def get_cookies():
+def get_login_cookies(page_url, save_cookies_path):
     driver = webdriver.Chrome()
     driver.get(url=page_url)
     time.sleep(20)
@@ -27,3 +27,6 @@ def get_cookies():
         # 保存为json格式
         f.write(json.dumps(driver.get_cookies()))
     driver.close()
+
+
+get_login_cookies(page_url, save_cookies_path)

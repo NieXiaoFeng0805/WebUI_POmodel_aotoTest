@@ -17,6 +17,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
+from utils.add_cookies import add_cookies
+
 '''Base是所有pageobject的父类，  为子类提供公共方法， 比如初始化 driver 和退出driver
 代码在base_page模块的basepage类使用——init——初始方法进行初始化操作，包括driver的复用
 driver的赋值、全局的等待时间设置 == 常见隐式等待'''
@@ -36,6 +38,10 @@ class Base:
             self.driver.maximize_window()
         else:
             self.driver = driver
+
+    def skip_login(self):  # 跳过登录
+        self.driver = add_cookies(self.driver)
+        return self.driver
 
     def close(self):
         time.sleep(3)

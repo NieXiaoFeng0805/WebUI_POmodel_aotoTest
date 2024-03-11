@@ -61,6 +61,18 @@ class CheckCart(Base):
         self.frame('layui-layer-iframe1')
         self.click(By.LINK_TEXT, '继续购物')
 
+    def check_sideFrame_cart(self):
+        self.click(By.XPATH, '/html/body/div[8]/div[2]/div[1]/div[2]/a/div/div/span[1]')
+        if self.check_hasThings():  # 有商品
+            pass
+        else:
+            try:
+                assert '购物车还什么都没有哦~', self.text(By.XPATH, '/html/body/div[8]/div[4]/div/span')
+            except:
+                print("空购物车显示异常")
+            else:
+                print("空购物车")
+
     def check_hasThings(self):  # 判断购物车是否有商品
         # try:
         #     print(self.text(By.ID, 'cart_quantity'))

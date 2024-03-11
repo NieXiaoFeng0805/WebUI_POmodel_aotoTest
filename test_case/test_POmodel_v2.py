@@ -10,7 +10,6 @@ import time
 import allure
 import pytest
 from utils.read_data import get_yaml_data
-
 from pages.index import Index
 
 
@@ -70,3 +69,7 @@ class Test_index:
         shop_name = args['name']
         self.index.to_check_cart().to_addThingsAndBackIndex(shop_name)
         self.index.to_check_cart().check_cart()
+
+    @allure.title("查看登录后的购物车")
+    def test_check_MyOrder(self):
+        self.index.to_check_MyCart().check_MyCart()

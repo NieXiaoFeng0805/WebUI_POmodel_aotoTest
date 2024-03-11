@@ -15,6 +15,10 @@ from pages.add_cart import AddCart
 from pages.register import Register
 from pages.check_cart import CheckCart
 from pages.my_cart import MyCart
+from pages.my_order import MyOrder
+from pages.my_history import MyHistory
+from pages.my_collections import MyCollections
+from pages.help_center import HelpCenter
 
 
 class Index(Base):
@@ -33,5 +37,17 @@ class Index(Base):
     def to_check_cart(self):  # 查看购物车
         return CheckCart(self.driver)
 
-    def to_check_MyCart(self):  # 查看我的订单
+    def to_check_MyCart(self):  # 查看登录后的购物车
         return MyCart(self.driver)
+
+    def to_check_MyOrder(self):  # 查看我的订单
+        return MyOrder(self.driver)
+
+    def to_check_MyHistory(self):  # 查看浏览记录
+        return MyHistory(self.driver)
+
+    def to_check_MyCollections(self):  # 查看收藏
+        return MyCollections(self.driver)
+
+    def to_HelpCenter(self):  # 进入帮助中心
+        return HelpCenter(self.driver)

@@ -39,10 +39,19 @@ class Base:
         else:
             self.driver = driver
 
-    def skip_login(self):  # 跳过登录
+    # 跳过登录
+    def skip_login(self):
         self.driver = add_cookies(self.driver)
-        return self.driver
+        try:
+            assert True, self.driver.base_ele_isexit(self.driver.find(By.LINK_TEXT, '安全退出'))
+        except:
+            print("未登录")
+            return False
+        else:  # 已登录
+            print("已登录")
+            return True
 
+    # 释放driver
     def close(self):
         time.sleep(3)
         self.driver.quit()

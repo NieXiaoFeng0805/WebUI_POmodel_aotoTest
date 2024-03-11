@@ -71,5 +71,21 @@ class Test_index:
         self.index.to_check_cart().check_cart()
 
     @allure.title("查看登录后的购物车")
-    def test_check_MyOrder(self):
+    def test_check_MyCart(self):
         self.index.to_check_MyCart().check_MyCart()
+
+    @allure.title("查看我的订单")
+    def test_check_MyOrder(self):
+        self.index.to_check_MyOrder().check_myOrder()
+
+    @allure.title("查看浏览记录")
+    def test_check_MyHistory(self):
+        self.index.to_check_MyHistory().check_my_history()
+
+    @allure.title("查看我的收藏")
+    def test_check_MyCollections(self):
+        self.index.to_check_MyCollections().check_my_collections()
+
+    @allure.title("进入帮助中心")
+    def test_in_HelpCenter(self):
+        self.index.to_HelpCenter().check_help_center()

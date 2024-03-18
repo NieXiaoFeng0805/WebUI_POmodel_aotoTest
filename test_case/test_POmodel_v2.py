@@ -89,3 +89,11 @@ class Test_index:
     @allure.title("进入帮助中心")
     def test_in_HelpCenter(self):
         self.index.to_HelpCenter().check_help_center()
+
+    @allure.title("优惠活动")
+    def test_navto_discount_activict(self):
+        self.index.to_DiscountActivity().check_discount_activity()
+
+    @allure.title('兑换中心')
+    def test_ExchangeCenter(self):
+        self.index.to_ExchangeCenter().check_exchangeCenter()

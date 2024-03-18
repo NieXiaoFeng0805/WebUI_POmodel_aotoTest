@@ -19,6 +19,8 @@ from pages.my_order import MyOrder
 from pages.my_history import MyHistory
 from pages.my_collections import MyCollections
 from pages.help_center import HelpCenter
+from pages.dicounut_page import Discount
+from pages.ExchangeCenter import ExchangeCenter
 
 
 class Index(Base):
@@ -51,3 +53,9 @@ class Index(Base):
 
     def to_HelpCenter(self):  # 进入帮助中心
         return HelpCenter(self.driver)
+
+    def to_DiscountActivity(self):  # 优惠活动
+        return Discount(self.driver)
+
+    def to_ExchangeCenter(self):  # 兑换中心
+        return ExchangeCenter(self.driver)

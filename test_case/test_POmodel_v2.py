@@ -97,3 +97,5 @@ class Test_index:
     @allure.title('兑换中心')
     def test_ExchangeCenter(self):
         self.index.to_ExchangeCenter().check_exchangeCenter()
+
+

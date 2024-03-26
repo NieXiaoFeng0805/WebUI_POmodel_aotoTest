@@ -12,7 +12,7 @@ import pytest
 import yaml
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from pages.index import Index
+from pages.Index import Index
 from ddt import ddt, data, unpack, file_data
 
 

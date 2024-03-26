@@ -15,7 +15,7 @@ from utils.read_data import get_yaml_data
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-from pages.index import Index
+from pages.Index import Index
 
 
 class Test_POmodel_v1:

@@ -22,6 +22,7 @@ class Test_User:
         print("调用teardown")
         self.user.close()
 
+    @allure.title("返回首页")
     def test_back_home(self):
         for i in range(2):
             if i == 0:
@@ -29,21 +30,27 @@ class Test_User:
             else:
                 self.user.back_home_2()  # 方式二返回
 
+    @allure.title("安全退出")
     def test_safe_quit(self):
         self.user.safe_quit()
 
-    def test_user_message(self):
-        self.user.check_user_info()
+    @allure.title("查看用户信息")
+    def test_user_info(self):
+        self.user.to_user_info().check_user_info()
 
+    @allure.title("查看用户收货地址")
     def test_user_address(self):
-        self.user.check_address()
+        self.user.to_user_info().check_user_address()
 
+    @allure.title("查看消息")
     def test_message(self):
-        self.user.to_message()
+        self.user.to_message().check_my_message()
 
+    @allure.title("查看积分商城")
     def test_point_store(self):
-        self.user.to_point_store()
+        self.user.to_point_store().check_point_store()
 
+    @allure.title("查看购物车")
     def test_my_cart(self):
         self.user.to_my_cart()
 

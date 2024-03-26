@@ -13,7 +13,7 @@ if __name__ == '__main__':
     # 是获取当前get_report_ByPyTest.py的父级目录
     base_path = os.path.dirname(os.path.abspath(__file__))
 
-    file_path = "../test_case/test_POmodel_v2.py"
+    file_path = "../test_case/test_index.py"
     report_path = "../TheReport"
     command_lines = ["-s", file_path, "--alluredir={}".format(report_path), ]
     pytest.main(command_lines)

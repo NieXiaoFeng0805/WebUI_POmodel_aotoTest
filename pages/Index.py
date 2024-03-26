@@ -20,7 +20,7 @@ from pages.my_history import MyHistory
 from pages.my_collections import MyCollections
 from pages.help_center import HelpCenter
 from pages.dicounut_page import Discount
-from pages.ExchangeCenter import ExchangeCenter
+from pages.exchange_center import ExchangeCenter
 
 
 class Index(Base):

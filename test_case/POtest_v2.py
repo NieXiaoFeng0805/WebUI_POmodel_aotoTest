@@ -12,7 +12,7 @@ import time
 import parameterized
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from pages.index import Index
+from pages.Index import Index
 from utils.read_data import get_csv_data
 
 

@@ -10,7 +10,7 @@ import time
 import allure
 import pytest
 from utils.read_data import get_yaml_data
-from pages.index import Index
+from pages.Index import Index
 
 
 class Test_index:

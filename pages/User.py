@@ -8,7 +8,16 @@
 """
 from pages.Base import Base
 from selenium.webdriver.common.by import By
-from pages.index import Index
+from pages.Index import Index
+
+from pages.user_info import UserInfo
+from pages.my_message import MyMessage
+from pages.point_store import PointStore
+from pages.check_cart import CheckCart
+from pages.user_account import UserAccount
+from pages.user_coupon import UserCoupon
+from pages.user_point import UserPoint
+from pages.vip import Vip
 
 
 class User(Base):
@@ -38,61 +47,65 @@ class User(Base):
         if self.skip_login():
             self.click(By.LINK_TEXT, '安全退出')
 
-    def check_user_info(self):
+    def to_user_info(self):
         """
         查看个人信息
         :return:
         """
-        pass
+        return UserInfo(self.driver)
 
-    def check_address(self):
+    def to_user_address(self):
         """
         查看收货地址
         :return:
         """
-        pass
+        return UserInfo(self.driver)
 
     def to_message(self):
         '''
         查看消息
         :return:
         '''
-        pass
+        return MyMessage(self.driver)
 
     def to_point_store(self):
         '''
         进入积分商城
         :return:
         '''
-        pass
+        return PointStore(self.driver)
 
     def to_my_cart(self):
         '''
         进入我的购物车
         :return:
         '''
-        pass
+        return CheckCart(self.driver)
 
     def to_my_account(self):
         '''
         查看账户余额
         :return:
         '''
+        return UserAccount(self.driver)
 
     def to_check_coupon(self):
         '''
         优惠卷
         :return:
         '''
+        return UserCoupon(self.driver)
 
     def to_check_point(self):
         '''
         查看积分
         :return:
         '''
+        return UserPoint(self.driver)
 
     def to_vip(self):
         '''
         查看vip
         :return:
         '''
+        return Vip(self.driver)

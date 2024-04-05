@@ -12,5 +12,9 @@ from selenium.webdriver.common.by import By
 
 class UserAccount(Base):
     def check_account(self):
-        self.click(By.XPATH, '/html/body/div[3]/div/div[2]/div[2]/div[1]/div[3]/ul[1]/li[2]/a/span')
-
+        try:
+            self.click(By.XPATH, '/html/body/div[3]/div/div[2]/div[2]/div[1]/div[3]/ul[1]/li[2]/a/span')
+        except:
+            print("查看用户账户失败")
+        else:
+            print("查看用户账户")

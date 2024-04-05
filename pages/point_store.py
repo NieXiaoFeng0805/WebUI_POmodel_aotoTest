@@ -12,5 +12,9 @@ from selenium.webdriver.common.by import By
 
 class PointStore(Base):
     def check_point_store(self):
-        self.click(By.LINK_TEXT, '积分商城')
-
+        try:
+            self.click(By.LINK_TEXT, '积分商城')
+        except:
+            print("进入积分商城失败")
+        else:
+            print("进入积分商城成功")

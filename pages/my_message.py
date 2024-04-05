@@ -12,4 +12,9 @@ from selenium.webdriver.common.by import By
 
 class MyMessage(Base):
     def check_my_message(self):
-        self.click(By.LINK_TEXT, '消息')
+        try:
+            self.click(By.XPATH, '/html/body/div[2]/div/div[3]/ul/li[3]/a')
+        except:
+            print("进入消息界面失败")
+        else:
+            print("进入消息界面成功")

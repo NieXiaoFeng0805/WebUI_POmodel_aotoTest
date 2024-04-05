@@ -14,6 +14,7 @@ from pages.User import User
 
 
 class Test_User:
+
     def setup(self):
         print("调用User")
         self.user = User()
@@ -22,13 +23,13 @@ class Test_User:
         print("调用teardown")
         self.user.close()
 
-    @allure.title("返回首页")
-    def test_back_home(self):
-        for i in range(2):
-            if i == 0:
-                self.user.back_home_1()  # 方式一返回
-            else:
-                self.user.back_home_2()  # 方式二返回
+    @allure.title("返回首页_1")
+    def test_back_home_1(self):
+        self.user.back_home_1()  # 方式一返回
+
+    @allure.title("返回首页_2")
+    def test_back_home_2(self):
+        self.user.back_home_2()  # 方式二返回
 
     @allure.title("安全退出")
     def test_safe_quit(self):
@@ -52,16 +53,20 @@ class Test_User:
 
     @allure.title("查看购物车")
     def test_my_cart(self):
-        self.user.to_my_cart()
+        self.user.to_my_cart().check_cart()
 
+    @allure.title("查看用户账户")
     def test_my_account(self):
-        self.user.to_my_account()
+        self.user.to_my_account().check_account()
 
+    @allure.title("查看优惠卷")
     def test_coupon(self):
-        self.user.to_check_coupon()
+        self.user.to_check_coupon().check_user_coupon()
 
+    @allure.title("查看积分")
     def test_user_point(self):
-        self.user.to_check_point()
+        self.user.to_check_point().check_user_point()
 
+    @allure.title("VIP充值")
     def test_vip(self):
-        self.user.to_vip()
+        self.user.to_vip().check_vip()

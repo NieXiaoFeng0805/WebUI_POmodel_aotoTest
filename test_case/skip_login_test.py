@@ -7,6 +7,7 @@
 
 """
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import time
 import json
 
@@ -16,9 +17,13 @@ driver = webdriver.Chrome()
 # 记得写完整的url 包括http和https
 driver.get('http://localhost/index.php')
 
-# 程序打开网页后20秒内手动登陆账户
-time.sleep(20)
-
+# 程序打开网页后自动登陆账户
+driver.find_element(By.LINK_TEXT, '登录').click()
+driver.find_element(By.ID, 'username').send_keys("13800138006")
+driver.find_element(By.ID, 'password').send_keys("123456")
+driver.find_element(By.ID, 'verify_code').send_keys("8888")
+driver.find_element(By.XPATH, '//*[@id="loginform"]/div/div[6]/a').click()
+time.sleep(5)
 with open('cookies_test.json', 'w') as cookief:
     # 将cookies保存为json格式
     cookief.write(json.dumps(driver.get_cookies()))

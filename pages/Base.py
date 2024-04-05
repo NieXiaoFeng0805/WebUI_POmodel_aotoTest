@@ -49,6 +49,7 @@ class Base:
         else:  # 已登录
             print("已登录")
             return True
+    # def skip_login_by_pass(self):
 
     # 释放driver
     def close(self):

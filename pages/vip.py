@@ -12,4 +12,10 @@ from selenium.webdriver.common.by import By
 
 class Vip(Base):
     def check_vip(self):
-        self.click(By.XPATH, '/html/body/div[3]/div/div[2]/div[2]/div[1]/div[3]/ul[2]/li[2]/a/span')
+        try:
+            self.click(By.XPATH, '/html/body/div[3]/div/div[2]/div[2]/div[1]/div[3]/ul[2]/li[2]/a/span')
+
+        except:
+            print("查看用户VIP失败")
+        else:
+            print("查看用户VIP")

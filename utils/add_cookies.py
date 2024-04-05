@@ -38,6 +38,8 @@ import yaml
 
 
 def add_cookies(driver: WebDriver):
+    # 首先清除由于浏览器打开已有的cookies
+    driver.delete_all_cookies()
     # 配置文件路径
     config_yaml = 'E://Pycharm//LearnSelenium//WebUI_POmodel_aotoTest//data//test_config'
     with open(config_yaml, 'r', encoding='utf-8') as f:
